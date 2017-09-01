@@ -1,0 +1,49 @@
+{
+    "environment": "imp",    
+    "flow": {
+        "elk_inspector": {
+            "dev":{
+            "elk_executable_path": {
+                "elasticsearch": "/path/to/elasticsearch/elasticsearch-5.5.1/bin",
+                "logstash": "/path/to/logstash/logstash-5.5.0/bin",
+                "kibana": "/path/to/kibana/kibana-5.5.0-darwin-x86_64/bin",
+                "filebeat": "/path/to/filebeat/filebeat-5.5.0-darwin-x86_64"
+            },
+            "elk_public_address": {
+                "elasticsearch": "http://localhost:9200",
+                "logstash": "http://localhost:9600",
+                "kibana": "http://localhost:5601"
+            },
+            "elk_configs": {
+                "logstash": ["/path/to/logstashconfig/LogStash-config-v1.conf",
+                "/path/to/logstashconfig/LogStash-config-v2.conf"],
+                "filebeat": "/path/to/filebeat-config/filebeat_new.yml"
+            }
+        },
+        "imp":{
+            "elk_executable_path": {
+                "elasticsearch": "/path/to/elasticsearch/elasticsearch-5.5.1/bin",
+                "logstash": "/path/to/logstash/logstash-5.5.0/bin",
+                "kibana": "/path/to/kibana/kibana-5.5.0-darwin-x86_64/bin",
+                "filebeat": "/path/to/filebeat/filebeat-5.5.0-darwin-x86_64"
+            },
+            "elk_public_address": {
+                "elasticsearch": "http://localhost:9200",
+                "logstash": "http://localhost:9600",
+                "kibana": "http://localhost:5601"
+            },
+            "elk_configs": {
+                "logstash": ["/path/to/logstashconfig/LogStash-config-v1.conf",
+                "/path/to/logstashconfig/LogStash-config-v2.conf"],
+                "filebeat": "/path/to/filebeat-config/filebeat_new.yml"
+            }
+        }
+    }
+    },
+    "logs":{
+        "cli_logs": "logs/express-cli.log",
+        "test_logs_path": "logs",
+        "maximum_rotating_log_files": 10,
+        "maximum_rotating_log_filesize": 200000000
+    }
+}
