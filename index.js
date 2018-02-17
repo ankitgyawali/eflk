@@ -110,7 +110,7 @@ function elkInspect(){
 function configure(elkInspect) {
   console.log("Opening config.json.. ")  
   try {
-    open('./config.json')
+    open(path.join(path.dirname(require.main.filename),'config.json'))
   } catch (e) {
     console.log(e)
     console.log(chalk.red("Something went wrong. Grab location of module with 'which eflk' and modify config.json manually with your favourite editor."))
@@ -119,3 +119,4 @@ function configure(elkInspect) {
     elkInspect();  
   }
 }
+
