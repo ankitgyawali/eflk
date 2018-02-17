@@ -33,6 +33,8 @@ Configuration expects three main parameters for the four stacks:
 
 `npm install -g eflk` to install globally. You should now be able to call eflk from anywhere by simply executing `eflk`.
 
+Path's to eflk stack (first time run) can be configured using `eflk configure`, or choosing `configure` option from cli.
+
 
 
 ## Screenshots
