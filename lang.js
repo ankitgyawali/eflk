@@ -8,7 +8,7 @@ let elk_directions_prompt = {
   type: 'list',
   name: 'direction',
   message: 'Please choose one of the options below to proceed:',
-  choices: ['Elasticsearch','Logstash','Kibana', 'Filebeat','Exit']
+  choices: ['Elasticsearch','Logstash','Kibana', 'Filebeat','Configure','Exit']
 };
 
 let es_directions_prompt = {

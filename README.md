@@ -17,7 +17,7 @@
 
 ## Configuration
 
-Create a copy of `sample-config.json` to `config.json`.  `cp sample-config.json config.json`
+Modify `config.json` to configure the module. Instructions to locate config file provided with installation instructions below.
 
 Configuration expects three main parameters for the four stacks:
 

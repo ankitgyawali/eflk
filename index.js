@@ -16,6 +16,7 @@ const
     lang = require('./lang'), // Contains language for cli 
     shell = require('shelljs'),
     Spinner = require('cli-spinner').Spinner,
+    open = require("open"),
     Table = require('cli-table');
 
 // If help menu is invoked show help and exit
@@ -25,6 +26,12 @@ if (argv._[0] == 'help' ){
     console.log(chalk.green('Arguments support not implemented yet. Use interface directly by running "eflk" or "npm run start"'));
     process.exit();
 }
+
+if (argv._[0] == 'configure' ){
+  configure()
+  process.exit();  
+}
+
 
 console.log(chalk.green('Welcome to Express-CLI\'s EFLK interface!'));
 main();
@@ -66,6 +73,10 @@ function eflk_dashboard(cb) {
   })
 }
 
+
+
+
+
 function elkInspect(){
   eflk_dashboard(function (){
   inquirer.prompt(lang.elk_directions_prompt).then(function (answers) {
@@ -82,11 +93,29 @@ function elkInspect(){
       flow.elk_inspect.kibana_inspector.init(elkInspect,1);                        
     }  else if (answers.direction === "Filebeat"){
       console.log(chalk.green('--------- Filebeat --------- '));
-      flow.elk_inspect.filebeat_inspector.init(elkInspect,1);                        
-    } else {
+      flow.elk_inspect.filebeat_inspector.init(elkInspect,1);
+    }  else if (answers.direction === "Configure"){
+
+      configure(elkInspect,true);
+
+    } 
+    else {
       console.log(chalk.green('Thanks for using Express\'s EFLK Interface'));      
       process.exit();    
     }
   });
 }); // After construct dashboard has been rendered
+}
+
+function configure(elkInspect) {
+  console.log("Opening config.json.. ")  
+  try {
+    open('./config.json')
+  } catch (e) {
+    console.log(e)
+    console.log(chalk.red("Something went wrong. Grab location of module with 'which eflk' and modify config.json manually with your favourite editor."))
+  }
+  if(elkInspect){
+    elkInspect();  
+  }
 }
