@@ -16,7 +16,6 @@ const
     lang = require('./lang'), // Contains language for cli 
     shell = require('shelljs'),
     Spinner = require('cli-spinner').Spinner,
-    open = require("open"),
     Table = require('cli-table');
 
 // If help menu is invoked show help and exit
@@ -108,13 +107,15 @@ function elkInspect(){
 }
 
 function configure(elkInspect) {
-  console.log("Opening config.json.. ")  
-  try {
-    open(path.join(path.dirname(require.main.filename),'config.json'))
-  } catch (e) {
-    console.log(e)
-    console.log(chalk.red("Something went wrong. Grab location of module with 'which eflk' and modify config.json manually with your favourite editor."))
-  }
+  console.log(chalk.green("\nPath to config.json:"))
+  console.log(path.join(path.dirname(require.main.filename),'config.json'))
+  console.log(chalk.green("\nConfigure path with your favourite editor:"))
+  console.log("\nVim:\nvim " + path.join(path.dirname(require.main.filename),'config.json'))  
+  console.log("\nVSCode:\ncode " + path.join(path.dirname(require.main.filename),'config.json'))  
+  console.log("\nNano:\nnano " + path.join(path.dirname(require.main.filename),'config.json'))
+  console.log("\nEmacs:\nemacs " + path.join(path.dirname(require.main.filename),'config.json'))
+  console.log("\nSublime:\nsubl " + path.join(path.dirname(require.main.filename),'config.json'))
+  
   if(elkInspect){
     elkInspect();  
   }
